@@ -8,7 +8,7 @@ import javax.swing.JOptionPane;
  * @author      your name goes here
  * @version     1.00
  */
-public class IntroToProgrammingCourse {
+public class IntroToProgrammingCourse implements IProgrammingCourse {
     private String courseName;
     private String courseNumber;
     private double credits;
@@ -18,9 +18,7 @@ public class IntroToProgrammingCourse {
         this.setCourseNumber(courseNumber);
     }
 
-    public String getCourseNumber() {
-        return courseNumber;
-    }
+   
 
     public final void setCourseNumber(String courseNumber) {
         if(courseNumber == null || courseNumber.length() == 0) {
@@ -31,10 +29,7 @@ public class IntroToProgrammingCourse {
         this.courseNumber = courseNumber;
     }
 
-    public double getCredits() {
-        return credits;
-    }
-
+   
     public void setCredits(double credits) {
         if(credits < 0.5 || credits > 4.0) {
             JOptionPane.showMessageDialog(null,
@@ -44,9 +39,7 @@ public class IntroToProgrammingCourse {
         this.credits = credits;
     }
 
-    public String getCourseName() {
-        return courseName;
-    }
+   
 
     public final void setCourseName(String courseName) {
         if(courseName == null || courseName.length() == 0) {
@@ -55,6 +48,21 @@ public class IntroToProgrammingCourse {
             System.exit(0);
         }
         this.courseName = courseName;
+    }
+
+    @Override
+    public String getCourseName() {
+        return this.courseName;
+    }
+
+    @Override
+    public String getCourseNumber() {
+       return this.courseNumber; 
+    }
+
+    @Override
+    public double getCredits() {
+        return this.credits;
     }
 
     

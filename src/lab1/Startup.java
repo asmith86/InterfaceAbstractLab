@@ -15,6 +15,12 @@ public class Startup {
         ProgrammingCourse introJava = new IntroJavaCourse("Intro to Java", "83840");
         ProgrammingCourse advJava = new AdvancedJavaCourse("Advanced Java", "84640");
         
+        /*Using LSP is advantageous when you want to treat a collection of differing
+         *classes polymorphically. LSP can potentially be disadvantageous when
+         *you want to use the specific implementation code not found in super classes,
+         *especially when you only are instantiating one object in the class heirarchy.
+         */
+        
         ProgrammingCourse[] progCourses = {
             introProg, introJava, advJava
             

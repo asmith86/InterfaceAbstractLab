@@ -8,7 +8,7 @@ import javax.swing.JOptionPane;
  * @author      your name goes here
  * @version     1.00
  */
-public class AdvancedJavaCourse {
+public class AdvancedJavaCourse implements IProgrammingCourse {
     private String courseName;
     private String courseNumber;
     private double credits;
@@ -19,10 +19,12 @@ public class AdvancedJavaCourse {
         this.setCourseNumber(courseNumber);
     }
 
-    public String getCourseNumber() {
+    @Override
+    public final String getCourseNumber() {
         return courseNumber;
     }
 
+    @Override
     public final void setCourseNumber(String courseNumber) {
         if(courseNumber == null || courseNumber.length() == 0) {
             JOptionPane.showMessageDialog(null,
@@ -32,11 +34,13 @@ public class AdvancedJavaCourse {
         this.courseNumber = courseNumber;
     }
 
-    public double getCredits() {
+    @Override
+    public final double getCredits() {
         return credits;
     }
 
-    public void setCredits(double credits) {
+    @Override
+    public final void setCredits(double credits) {
         if(credits < 0.5 || credits > 4.0) {
             JOptionPane.showMessageDialog(null,
                     "Error: credits must be in the range 0.5 to 4.0");
@@ -45,11 +49,11 @@ public class AdvancedJavaCourse {
         this.credits = credits;
     }
 
-    public String getPrerequisites() {
+    public final String getPrerequisites() {
         return prerequisites;
     }
 
-    public void setPrerequisites(String prerequisites) {
+    public final void setPrerequisites(String prerequisites) {
         if(prerequisites == null || prerequisites.length() == 0) {
             JOptionPane.showMessageDialog(null,
                     "Error: prerequisites cannot be null of empty string");
@@ -58,10 +62,12 @@ public class AdvancedJavaCourse {
         this.prerequisites = prerequisites;
     }
 
-    public String getCourseName() {
+    @Override
+    public final String getCourseName() {
         return courseName;
     }
 
+    @Override
     public final void setCourseName(String courseName) {
         if(courseName == null || courseName.length() == 0) {
             JOptionPane.showMessageDialog(null,
@@ -70,6 +76,8 @@ public class AdvancedJavaCourse {
         }
         this.courseName = courseName;
     }
+
+   
 
     
 }
