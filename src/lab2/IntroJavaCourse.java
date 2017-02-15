@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
  */
 public class IntroJavaCourse implements IProgrammingCourse {
 
-    String courseName;
+    private String courseName;
     private String courseNumber;
     private double credits;
     private String prerequisites;
@@ -20,10 +20,12 @@ public class IntroJavaCourse implements IProgrammingCourse {
         this.courseNumber = courseNumber;
     }
 
+    @Override
     public final void setCourseNumber(String courseNumber) {
         this.courseNumber = courseNumber;
     }
 
+    @Override
     public final void setCredits(double credits) {
         this.credits = credits;
     }
@@ -33,6 +35,9 @@ public class IntroJavaCourse implements IProgrammingCourse {
     }
 
     public final void setPrerequisites(String prerequisites) {
+        if(prerequisites == null || prerequisites.length() == 0) {
+            throw new IllegalArgumentException("Invalid prerequisites");
+        }
         this.prerequisites = prerequisites;
     }
 

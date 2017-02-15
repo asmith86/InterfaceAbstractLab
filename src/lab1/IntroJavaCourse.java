@@ -22,6 +22,9 @@ public class IntroJavaCourse extends ProgrammingCourse {
     }
 
     public final void setPrerequisites(String prerequisites) {
+        if(prerequisites == null || prerequisites.length() == 0) {
+            throw new IllegalArgumentException("Invalid prerequisites");
+        }
         this.prerequisites = prerequisites;
     }
 
