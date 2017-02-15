@@ -15,6 +15,16 @@ public class Startup {
         ProgrammingCourse introJava = new IntroJavaCourse("Intro to Java", "83840");
         ProgrammingCourse advJava = new AdvancedJavaCourse("Advanced Java", "84640");
         
+        /*
+         * What I like about this design is that there are appropriate opportunities 
+         * for code reuse that does not produce Excessive rigidity. The classes 
+         * are similar enough where I feel that using an abstract class is appropriate, 
+         * especially because there doesn't seem to be a need (at least to me) that
+         * abstract methods need to be used, otherwise an Interface would be more suitable.
+         */
+        
+        
+        
         /*Using LSP is advantageous when you want to treat a collection of differing
          *classes polymorphically. LSP can potentially be disadvantageous when
          *you want to use the specific implementation code not found in super classes,

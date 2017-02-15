@@ -5,7 +5,7 @@
  */
 package lab1;
 
-import javax.swing.JOptionPane;
+
 
 /**
  *
@@ -33,18 +33,14 @@ public abstract class ProgrammingCourse {
 
     public final void setCourseName(String courseName) {
         if(courseName == null || courseName.length() == 0) {
-            JOptionPane.showMessageDialog(null,
-                    "Error: courseName cannot be null of empty string");
-            System.exit(0);
+            throw new IllegalArgumentException("Illegal Name");
         }
         this.courseName = courseName;
     }
 
     public final void setCourseNumber(String courseNumber) {
         if(courseNumber == null || courseNumber.length() == 0) {
-            JOptionPane.showMessageDialog(null,
-                    "Error: courseNumber cannot be null of empty string");
-            System.exit(0);
+            throw new IllegalArgumentException("Invalid Number");
         }
         this.courseNumber = courseNumber;
     }
@@ -57,9 +53,7 @@ public abstract class ProgrammingCourse {
 
     public final void setCredits(double credits) {
         if(credits < 0.5 || credits > 4.0) {
-            JOptionPane.showMessageDialog(null,
-                    "Error: credits must be in the range 0.5 to 4.0");
-            System.exit(0);
+            throw new IllegalArgumentException("Invalid number of credits");
         }
         this.credits = credits;
     }
