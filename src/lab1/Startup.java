@@ -11,6 +11,17 @@ package lab1;
  */
 public class Startup {
     public static void main(String[] args) {
+        ProgrammingCourse introProg = new IntroToProgrammingCourse("Intro to programming", "029383");
+        ProgrammingCourse introJava = new IntroJavaCourse("Intro to Java", "83840");
+        ProgrammingCourse advJava = new AdvancedJavaCourse("Advanced Java", "84640");
         
+        ProgrammingCourse[] progCourses = {
+            introProg, introJava, advJava
+            
+        };
+        
+        for(ProgrammingCourse pc : progCourses){
+            System.out.println(pc.getCourseName());
+        }
     }
 }
