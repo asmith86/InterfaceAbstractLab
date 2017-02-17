@@ -1,6 +1,6 @@
 package lab2;
 
-import javax.swing.JOptionPane;
+
 
 /**
  * Describe responsibilities here.
@@ -26,7 +26,7 @@ public class AdvancedJavaCourse implements IProgrammingCourse {
 
     @Override
     public final void setCourseNumber(String courseNumber) {
-        if(courseNumber == null || courseNumber.length() == 0) {
+        if(courseNumber == null || courseNumber.length() == 0 || courseNumber.length() > 6) {
             throw new IllegalArgumentException("Invalid Course Number");
         }
         this.courseNumber = courseNumber;

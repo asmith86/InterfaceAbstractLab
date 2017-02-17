@@ -22,11 +22,17 @@ public class IntroJavaCourse implements IProgrammingCourse {
 
     @Override
     public final void setCourseNumber(String courseNumber) {
+        if(courseNumber == null || courseNumber.length() == 0 || courseNumber.length() > 6) {
+            throw new IllegalArgumentException("Invalid Course Number");
+        }
         this.courseNumber = courseNumber;
     }
 
     @Override
     public final void setCredits(double credits) {
+        if(credits < 0.5 || credits > 4.0) {
+            throw new IllegalArgumentException("Invalid number of credits");
+        }
         this.credits = credits;
     }
 
