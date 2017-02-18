@@ -15,22 +15,23 @@ public class IntroJavaCourse implements IProgrammingCourse {
     private double credits;
     private String prerequisites;
 
-    public IntroJavaCourse(String courseName, String courseNumber) {
-        this.courseName = courseName;
-        this.courseNumber = courseNumber;
+    public IntroJavaCourse(String courseName, String courseNumber, double credits) {
+        this.setCourseName(courseName);
+        this.setCourseNumber(courseNumber);
+        this.setCredits(credits);
     }
 
     @Override
     public final void setCourseNumber(String courseNumber) {
-        if(courseNumber == null || courseNumber.length() == 0 || courseNumber.length() > 6) {
-            throw new IllegalArgumentException("Invalid Course Number");
+        if(courseNumber == null || courseNumber.isEmpty() || courseNumber.length() > 6) {
+            throw new IllegalArgumentException("Invalid Intro to Java Course Number");
         }
         this.courseNumber = courseNumber;
     }
 
     @Override
     public final void setCredits(double credits) {
-        if(credits < 0.5 || credits > 4.0) {
+        if(credits < 2.0 || credits > 3.0) {
             throw new IllegalArgumentException("Invalid number of credits");
         }
         this.credits = credits;
@@ -41,18 +42,16 @@ public class IntroJavaCourse implements IProgrammingCourse {
     }
 
     public final void setPrerequisites(String prerequisites) {
-        if(prerequisites == null || prerequisites.length() == 0) {
-            throw new IllegalArgumentException("Invalid prerequisites");
+        if(prerequisites == null || prerequisites.isEmpty()) {
+            throw new IllegalArgumentException("Invalid prerequisites for Intro to Java");
         }
         this.prerequisites = prerequisites;
     }
 
     @Override
     public final void setCourseName(String courseName) {
-        if (courseName == null || courseName.length() == 0) {
-            JOptionPane.showMessageDialog(null,
-                    "Error: courseName cannot be null of empty string");
-            System.exit(0);
+        if (courseName == null || courseName.isEmpty()) {
+            throw new IllegalArgumentException("Invalid name for Intro to Java");
         }
         this.courseName = courseName;
     }

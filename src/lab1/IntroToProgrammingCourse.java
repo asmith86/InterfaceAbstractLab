@@ -8,26 +8,56 @@ package lab1;
  * @version 1.00
  */
 public class IntroToProgrammingCourse extends ProgrammingCourse {
+
     private String courseNumber;
-    
-    
-    public IntroToProgrammingCourse(String courseName, String courseNumber) {
-        super(courseName);
+    private double credits;
+
+    private enum Paradigm {
+        PROCEDURAL, OBJECTORIENTED, FUNCTIONAL
+    }
+    private String paradigm;
+
+    public IntroToProgrammingCourse(String courseName, String courseNumber,
+            String paradigm, double credits) {
+        this.setCourseName(courseName);
         this.setCourseNumber(courseNumber);
-        
+        this.setParadigm(paradigm);
+        this.setCredits(credits);
+
     }
 
-   
+    private void setParadigm(String pString) {
+
+        Paradigm p = Paradigm.valueOf(pString.replaceAll("\\s", "").toUpperCase());
+        
+
+        switch (p) {
+            case PROCEDURAL:
+                this.paradigm = "Procedural";
+                break;
+            case OBJECTORIENTED:
+                this.paradigm = "Object-oriented";
+                break;
+            case FUNCTIONAL:
+                this.paradigm = "Functional";
+            default:
+                throw new IllegalArgumentException("Invalid Paradigm");
+           
+        }
+    }
+
+    public final String getParadigm(){
+        return this.paradigm;
+    }
+ 
 
     @Override
-    public final void setCourseNumber(String courseNumber) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void setCredits(double credits) {
+        if(credits < 0.5 || credits > 2){
+            throw new IllegalArgumentException("Invalid number of credits");
+        } else {
+            this.credits = credits;
+        }
     }
 
-    public final String getCourseNumber() {
-        return courseNumber;
-    }
-
-    
-    
 }

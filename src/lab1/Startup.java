@@ -11,9 +11,9 @@ package lab1;
  */
 public class Startup {
     public static void main(String[] args) {
-        ProgrammingCourse introProg = new IntroToProgrammingCourse("Intro to programming", "029383");
-        ProgrammingCourse introJava = new IntroJavaCourse("Intro to Java", "83840");
-        ProgrammingCourse advJava = new AdvancedJavaCourse("Advanced Java", "84640");
+        ProgrammingCourse introProg = new IntroToProgrammingCourse("Intro to programming", "029383", "object oriented", 1.0);
+        ProgrammingCourse introJava = new IntroJavaCourse("Intro to Java", "83840", 2.0);
+        ProgrammingCourse advJava = new AdvancedJavaCourse("Advanced Java", "84640", 4.0);
         
         /*
          * What I like about this design is that there are appropriate opportunities 

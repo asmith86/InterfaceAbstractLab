@@ -13,39 +13,42 @@ package lab1;
  */
 public abstract class ProgrammingCourse {
    private String courseName;
-   private double credits;
+   private String courseNumber;
     
-    public ProgrammingCourse(String courseName){
-        this.courseName = courseName;
-        
-    }
 
     public final String getCourseName() {
         return courseName;
     }
 
     public final void setCourseName(String courseName) {
-        if(courseName == null || courseName.length() == 0) {
+        if(courseName == null || courseName.isEmpty()) {
             throw new IllegalArgumentException("Illegal Name");
         }
         this.courseName = courseName;
     }
 
-    public abstract void setCourseNumber(String courseNumber);
-        
-
-    
-
-    public final double getCredits() {
-        return credits;
-    }
-
-    public final void setCredits(double credits) {
-        if(credits < 0.5 || credits > 4.0) {
-            throw new IllegalArgumentException("Invalid number of credits");
+    public final void setCourseNumber(String courseNumber){
+        if(courseNumber.isEmpty() || courseNumber.length() > 7){
+            throw new IllegalArgumentException("Invalid course number!");
+            
+        } else {
+            this.setCourseNumber(courseNumber);
         }
-        this.credits = credits;
+        
+        
+        
     }
+       
+    public abstract void setCredits(double credits); 
+
+    public final String getCourseNumber() {
+        return courseNumber;
+    }
+    
+    public final String getCapitalizedCourseName() {
+        return this.getCourseName().toUpperCase();
+    }
+        
         
     
     

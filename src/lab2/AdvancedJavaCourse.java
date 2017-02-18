@@ -14,9 +14,10 @@ public class AdvancedJavaCourse implements IProgrammingCourse {
     private double credits;
     private String prerequisites;
 
-    public AdvancedJavaCourse(String courseName, String courseNumber) {
+    public AdvancedJavaCourse(String courseName, String courseNumber, double credits) {
         this.setCourseName(courseName);
         this.setCourseNumber(courseNumber);
+        this.setCredits(credits);
     }
 
     @Override
@@ -26,8 +27,8 @@ public class AdvancedJavaCourse implements IProgrammingCourse {
 
     @Override
     public final void setCourseNumber(String courseNumber) {
-        if(courseNumber == null || courseNumber.length() == 0 || courseNumber.length() > 6) {
-            throw new IllegalArgumentException("Invalid Course Number");
+        if(courseNumber == null || courseNumber.isEmpty() || courseNumber.length() > 6) {
+            throw new IllegalArgumentException("Invalid Advanced Java Course Number");
         }
         this.courseNumber = courseNumber;
     }
@@ -39,7 +40,7 @@ public class AdvancedJavaCourse implements IProgrammingCourse {
 
     @Override
     public final void setCredits(double credits) {
-        if(credits < 0.5 || credits > 4.0) {
+        if(credits < 3.0 || credits > 4.0) {
             throw new IllegalArgumentException("Invalid number of credits");
         }
         this.credits = credits;
@@ -51,7 +52,7 @@ public class AdvancedJavaCourse implements IProgrammingCourse {
 
     public final void setPrerequisites(String prerequisites) {
         if(prerequisites == null || prerequisites.length() == 0) {
-            throw new IllegalArgumentException("Invalid prerequisites");
+            throw new IllegalArgumentException("Invalid prerequisites for Advanced Java");
         }
         this.prerequisites = prerequisites;
     }
@@ -64,7 +65,7 @@ public class AdvancedJavaCourse implements IProgrammingCourse {
     @Override
     public final void setCourseName(String courseName) {
         if(courseName == null || courseName.length() == 0) {
-            throw new IllegalArgumentException("Invalid Course Name");
+            throw new IllegalArgumentException("Invalid Course Name for Advanced Java.");
         }
         this.courseName = courseName;
     }

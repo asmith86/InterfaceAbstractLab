@@ -9,10 +9,12 @@ package lab1;
 public class IntroJavaCourse extends ProgrammingCourse {
     private String courseNumber;
     private String prerequisites;
+    private double credits;
 
-    public IntroJavaCourse(String courseName, String courseNumber) {
-        super(courseName);
+    public IntroJavaCourse(String courseName, String courseNumber, double credits) {
+        this.setCourseName(courseName);
         this.setCourseNumber(courseNumber);
+        this.setCredits(credits);
     }
 
     public final String getPrerequisites() {
@@ -20,23 +22,23 @@ public class IntroJavaCourse extends ProgrammingCourse {
     }
 
     public final void setPrerequisites(String prerequisites) {
-        if (prerequisites == null || prerequisites.length() == 0) {
-            throw new IllegalArgumentException("Invalid prerequisites");
+        if (prerequisites == null || prerequisites.isEmpty()) {
+            throw new IllegalArgumentException("Invalid prerequisites for Intro to Java");
         }
         this.prerequisites = prerequisites;
     }
 
     @Override
-    public final void setCourseNumber(String courseNumber) {
-        if (courseNumber == null || courseNumber.length() == 0) {
-            throw new IllegalArgumentException("Invalid Number");
+    public final void setCredits(double credits) {
+        if(credits < 1 || credits > 3){
+            throw new IllegalArgumentException("Invalid number of credits");
+        } else {
+            this.credits = credits;
         }
-        this.courseNumber = courseNumber;
     }
+   
 
-    public final String getCourseNumber() {
-        return courseNumber;
-    }
+   
     
     
 

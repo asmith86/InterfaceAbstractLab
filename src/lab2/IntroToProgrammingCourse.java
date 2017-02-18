@@ -13,16 +13,17 @@ public class IntroToProgrammingCourse implements IProgrammingCourse {
     private String courseNumber;
     private double credits;
 
-    public IntroToProgrammingCourse(String courseName, String courseNumber) {
+    public IntroToProgrammingCourse(String courseName, String courseNumber, double credits) {
         this.setCourseName(courseName);
         this.setCourseNumber(courseNumber);
+        this.setCredits(credits);
     }
 
    
 
     @Override
     public final void setCourseNumber(String courseNumber) {
-        if(courseNumber == null || courseNumber.length() == 0 || courseNumber.length() > 6) {
+        if(courseNumber == null || courseNumber.isEmpty() || courseNumber.length() > 6) {
             throw new IllegalArgumentException("Invalid Course Number.");
         }
         this.courseNumber = courseNumber;
@@ -31,7 +32,7 @@ public class IntroToProgrammingCourse implements IProgrammingCourse {
    
     @Override
     public void setCredits(double credits) {
-        if(credits < 0.5 || credits > 4.0) {
+        if(credits < 0.5 || credits > 2) {
             throw new IllegalArgumentException("Invalid number of credits.");
         }
         this.credits = credits;
@@ -41,7 +42,7 @@ public class IntroToProgrammingCourse implements IProgrammingCourse {
 
     @Override
     public final void setCourseName(String courseName) {
-        if(courseName == null || courseName.length() == 0) {
+        if(courseName == null || courseName.isEmpty()) {
             throw new IllegalArgumentException("Invalid Course Name");
         }
         this.courseName = courseName;
